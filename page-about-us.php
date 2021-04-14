@@ -22,7 +22,7 @@
 								$image = wp_get_attachment_image_src($id_image, 'boxes');
 						?>
 						<img src="<?php echo $image[0]; ?>">
-						<div class="content-box">
+						<div class="content-box">s
 							<?php the_field('description_1'); ?>
 					</div>
 				</div>
