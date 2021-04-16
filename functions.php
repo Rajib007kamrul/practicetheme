@@ -90,3 +90,21 @@ function lapizzeria_Specialties() {
 }
 
 add_action( 'init', 'lapizzeria_Specialties' );
+
+
+/*** Widget Zone ***/
+
+function lapizzeria_widgets() {
+	register_sidebar( array(
+		'name' => 'Blog sidebar',
+		'id'   => 'blog_sidebar',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3> ',
+		'after_title' => '</h3>'
+	));
+
+}
+
+
+add_action('widgets_init', 'lapizzeria_widgets');

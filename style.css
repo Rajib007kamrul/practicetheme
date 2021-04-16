@@ -60,7 +60,8 @@ h4 {
 	margin:0 auto;
 }
 
-.sr-text {
+.sr-text,
+.screen-reader-text {
 	display: none;
 }
 
@@ -81,17 +82,23 @@ h4 {
 	color: #fff;
 	padding: 12px 12px;
 	margin-top: 20px;
-	display: block;
+	display: inline-block;
 	margin-bottom: 10px;
 	width: 120px;
 	text-align: center;
 	text-decoration: none;
+	cursor: pointer;
+}
+.primary {
+	background-color: #a61206;
+	transition: background-color .5s ease;
 }
 
+.primary:hover {
+	background-color: #7b0d04;
+}
 
 /** HEADER **/
-
-/
 
 header.side-header {
 	border-bottom: 1px solid #c1c1c1;
@@ -114,7 +121,6 @@ div.logo {
 	}
 }
 
-
 img.logoimage {
 	max-width: 100%;
 	width: 250px;
@@ -125,23 +131,17 @@ img.logoimage {
 		position: relative;
 	}
 
-
 	.header-information {
 		position: absolute;
 		top: 0;
 		right: 0;
-
 	}
-
 	div.address {
 		display: block;
 		/*clear: both;*/
 		padding-top: 100px;
 	}
-
 }
-
-
 
 @media only screen and (max-width: 768px) {
 	div.address {
@@ -159,9 +159,7 @@ div.address p {
 	div.address p {
 		text-align: right;
 	}
-
 }
-
 /**  Social Menu  **/
 
 nav.socials ul {
@@ -169,8 +167,7 @@ nav.socials ul {
 	text-align: center;
 	padding: 0;
 
-	}
-
+}
 nav.socials ul li {
 	position: relative;
 	display: inline-block;
@@ -207,14 +204,12 @@ nav.socials li a[href*="instagram.com"]::before {
 
 nav.site-nav {
 	display: none;
-
 }
 @media only screen and (min-width: 768px) {
 	nav.site-nav {
 		display: block;
 	}
 }
-
 nav.site-nav ul {
 	list-style: none;
 	margin: 0;
@@ -222,14 +217,12 @@ nav.site-nav ul {
 	width: 100%;
 	display: table;
 }
-
 @media only screen and (min-width: 768px) {
 	nav.site-nav ul li {
 		display: table-cell;
 		width: 1%;
 	}
 }
-
 nav.site-nav ul li a {
 	text-align: center;
 	padding: 20px 0;
@@ -240,21 +233,16 @@ nav.site-nav ul li a {
 	color: #000000;
 	font-family: 'Raleway', sans-serif;
 }
-
 nav.site-nav ul li.current_page_item a,
 .single-specialties nav.site-nav ul li.men-item-27 a {
 	border-bottom: 8px solid #a61206;
-
 }
-
 .mobile-menu a {
 	display: none;
 }
-
 /** Responsive Menu Button ***/
 /******************************/
 @media only screen and (max-width: 768px) {
-
 		nav.socials ul {
 			float: right;
 		}
@@ -275,7 +263,6 @@ nav.site-nav ul li.current_page_item a,
 		}
 
 }
-
 
 /**** hero image   ***/
 /*************************/
@@ -333,21 +320,17 @@ nav.site-nav ul li.current_page_item a,
 		margin-top: -90px;
 
 	}
-
 }
-
 .content-text p {
 	font-size:18px;
 	line-height: 50px;
 }
-
 
 /***** boxes ****/
 
 .box-information {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-
 }
 
 @media only screen and (min-width:768px) {
@@ -362,27 +345,21 @@ nav.site-nav ul li.current_page_item a,
 	color: white;
 	text-align: center;
 }
-
 @media only screen and (min-width:768px) {
 	.single-box {
 				grid-template-columns: unset;
 				grid-template-rows: 1fr 1fr;
 	}
 }
-
 .single-box:nth-child(1) {
 	background-color: #f19f30;
-
 }
 
 .single-box:nth-child(2) {
 	background-color: #127427;
-
 }
-
 .single-box:nth-child(3) {
 	background-color: #a61206;
-
 }
 
 @media only screen and (min-width:768px) {
@@ -392,10 +369,8 @@ nav.site-nav ul li.current_page_item a,
 
 		.single-box:nth-child(2) div{
 				order:1;
-
 		}
 }
-
 .content-box {
 	display: grid;
 	grid-template-rows: 10% 20% 60% 10%;
@@ -463,16 +438,13 @@ footer p {
 	font-size: 14px;
 }
 
-
 /**  Grid   *****/
 
 img {
 	max-width: 100%;
 	height: auto;
 }
-
 @media only screen and (min-width:768px) {
-
 	.container-grid {
 		margin-left: -10px;
 		margin-right: -10px;
@@ -506,11 +478,8 @@ img {
 	.columns2-3 {
 		width: 66.6%;
 	}
-
 }
-
-/***  Specialties   *****/
-
+/**  Specialties   *****/
 .our-Specialties {
 	padding: 0 60px;
 }
@@ -566,7 +535,6 @@ img {
 header .entry-header {
 	margin-top: 20px;
 }
-
 header.entry-header .date {
 	background-color: #f19f30;
 	float: left;
@@ -576,7 +544,6 @@ header.entry-header .date {
 	padding-top: 5px;
 	margin-right: 20px;
 }
-
 header.entry-header .date time {
 	font-size: 30px;
 	font-family: 'Raleway', sans-serif;
@@ -591,29 +558,85 @@ header.entry-header .entry-title {
 	float: right;
 	width: calc(100% - 90px);
 }
-
 header.entry-header h2 {
 	margin: 0;
 	font-size: 24px;
 	text-transform: uppercase;
 	font-weight: 700;
-
 }
-
 header.entry-header p.author {
 	text-transform: uppercase;
 	color: #000;
 	margin-top: 10px;
 	font-family: 'Raleway', sans-serif;
-
+	margin: 0;
 }
-
 p.author i {
 	font-size: 30px;
 	color: #f19f30;
 }
-
 div.entry-content p {
 	margin-top: 0;
 	line-height: 24px;
+}
+
+
+/**** Sidebar ***/
+
+aside .sidebar {
+	margin-top: 3px;
+	margin-bottom
+}
+
+form.searchform {
+	position: relative;
+}
+
+form.searchform #searchsubmit {
+	position: absolute;
+	top:0;
+	right:108px;
+	width: 42px;
+	height: 42px;
+	background-color: #a61206;
+	text-indent: -9999px;
+	background-image: url(./files la pizzeria/img/search.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	border: none;
+	cursor: pointer;
+}
+
+form.searchform #s {
+	width: 20%;
+	padding: 10px;
+}
+
+.sidebar .widget {
+	margin-bottom: 20px;
+
+}
+
+.sidebar .widget h3 {
+	font-weight: 700;
+	font-size: 24px;
+	text-transform: uppercase;
+}
+
+.sidebar .widget ul {
+	list-style: none;
+	
+}
+
+.sidebar .widget ul li {
+	margin-bottom: 20px;
+}
+
+.sidebar .widget ul li a {
+	color: #000;
+	text-decoration: none;
+}
+
+.sidebar .widget ul li a:hover {
+	color: #f19f30;
 }
