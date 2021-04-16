@@ -11,7 +11,10 @@
 
 			<div class="main-content container">
 				<main class="text-center content-text">
+					<p class="ingredients"> Ingredients:</p>
 						<?php the_content(); ?>
+
+						<p class="price">Price: <span> <?php the_field('price'); ?></span></p>
 				</main>
 			</div>
 

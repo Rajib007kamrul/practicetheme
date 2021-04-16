@@ -6,9 +6,9 @@
 	<title>La Pizzeria</title>
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<?php wp_head(); ?>
-
 </head>
-<body>
+
+<body <?php body_class(); ?> >
 
 	<header class="side-header">
 		<div class='container'>
