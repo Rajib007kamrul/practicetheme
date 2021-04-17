@@ -14,7 +14,7 @@
 		<div class='container'>
 				<div class="logo">
 					<a href="<?php echo esc_url( home_url('/') ) ; ?>">
-						<img src="<?php echo get_template_directory_uri() ?>/files la pizzeria/img/logo.Svg" class="logoimage">
+						<img src="<?php echo get_template_directory_uri() ?>/files-la-pizzeria/img/logo.Svg" class="logoimage">
 					</a>
 				</div>  <!-- logo -->
 				<div class="header-information">

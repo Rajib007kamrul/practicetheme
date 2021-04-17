@@ -1,31 +1,25 @@
 <?php get_header(); ?>
-
     <?php
       $blog_page = get_option('page_for_posts');
       $image = get_post_thumbnail_id($blog_page);
       $image =wp_get_attachment_image_src( $image, 'full');
     ?>
-
 			<div class="hero" style="background-image:url(<?php echo $image[0];  ?>); ">
 				<div class="hero-content">
 					<div class="hero-text">
-
 						<h2><?php echo get_the_title($blog_page); ?></h2>
 					</div>
 				</div>
 			</div>
-
 			<div class="main-content container">
         <div class="container-grid">
 			    <main class="content-text columns2-3">
 					       <?php while(have_posts()): the_post(); ?>
-
                    <article class="entry">
                      <a href="<?php the_permalink(); ?>">
-                       <?php the_post_thumbnail('Specialties'); ?>
-                     </a>
-
-                     <header class="entry-header clear">
+                      <?php the_post_thumbnail('Specialties'); ?>
+                      </a>
+                      <header class="entry-header clear">
                         <div class="date">
                           <time>
                               <?php echo the_time('d'); ?>
