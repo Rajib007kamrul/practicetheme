@@ -7,13 +7,14 @@
         );
         wp_nav_menu($args);
       ?>
-        <div class="location">
-          <p>8179 Bay Avenue  Mountain View, CA 94043</p>
-          <p>Phone Number: +1-92-456-7890</p>
-        </div>
+      <div class="location">
+        <p>8179 Bay Avenue Mountain View, CA 94043</p>
+        <p>Phone Number: +1-92-456-7890</p>
+      </div>
 
-        <p class="Copyright">All Rights Reserved <?php echo date('Y'); ?></p>
+      <p class="Copyright">All Rights Reserved <?php echo date('Y'); ?></p>
     </footer>
-<?php wp_footer(); ?>
-</body>
-</html>
+    <?php wp_footer(); ?>
+    </body>
+
+    </html>

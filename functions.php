@@ -1,9 +1,20 @@
 <?php
+
+//Link or import database.php file
+
+require get_template_directory() . '/inc/database.php';
+require get_template_directory() . '/inc/reservation.php';
+
+
 function lapizzeria_setup() {
 	add_theme_support( 'post-thumbnails');
 	add_image_size( 'boxes', 437, 291, true );
 
 	add_image_size('Specialties', 768, 515, true);
+
+	update_option( 'thumbnail_size_w', 253);
+
+	update_option( 'thumbnail_size_h', 164);
 
 }
 
@@ -13,21 +24,24 @@ function lapizzeria_styles() {
 	//adding stylesheets
 	wp_register_style('googlefonts','https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Raleway:wght@400;700;900&display=swap');
 	wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(),'8.0.1');
+	wp_register_style('fluidboxcss', get_template_directory_uri() . '/css/fluidbox.min.css', array(),'8.0.1');
 	// wp_register_style('fontawesome', get_template_directory_uri() . '/css/fontawesome.css', array(),'5.15.3');
 	wp_register_style('style', get_template_directory_uri() . '/style.css', array('normalize'),'1.0');
 
 	//Enqueue the style
 	wp_enqueue_style('normalize');
 	wp_enqueue_style('googlefont');
+	wp_enqueue_style('fluidboxcss');
 
 
 	// wp_enqueue_style('fontawesome');
 	wp_enqueue_style('style');
-
+	wp_register_script( 'fluidboxjs', get_template_directory_uri() . '/js/jquery.fluidbox.min.js', array('jquery'), '1.0.0', true );
 	wp_register_script( 'script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true );
 	// java Script file
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('script');
+	wp_enqueue_script('fluidboxjs');
 }
 
 add_action('wp_enqueue_scripts', 'lapizzeria_styles');
