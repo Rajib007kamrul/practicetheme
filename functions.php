@@ -4,6 +4,7 @@
 
 require get_template_directory() . '/inc/database.php';
 require get_template_directory() . '/inc/reservation.php';
+require get_template_directory() . '/inc/options.php';
 
 
 function lapizzeria_setup() {
@@ -11,6 +12,8 @@ function lapizzeria_setup() {
 	add_image_size( 'boxes', 437, 291, true );
 
 	add_image_size('Specialties', 768, 515, true);
+
+	add_image_size('Specialty-portrait', 435, 530, true);
 
 	update_option( 'thumbnail_size_w', 253);
 

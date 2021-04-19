@@ -18,7 +18,7 @@ get_header(); ?>
   <main class="text-center content-text clear">
     <div class="reservation-info">
       <!-- action="<?php //echo esc_url( admin_url('admin-post.php') ); ?>" -->
-      <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" class="reservation-form" method="post">
+      <form  class="reservation-form" method="post">
         <h2>Make a reservation</h2>
         <div class="field">
           <input type="text" name="name" placeholder="Name" required>
@@ -37,7 +37,7 @@ get_header(); ?>
         </div>
         <input type="submit" name="reservation" class="button">
         <!-- <input trpe="hidden" name="hidden" value="1"> -->
-        <input type="hidden" name="action" value="reservation_form">
+        <!-- <input type="hidden" name="action" value="reservation_form"> -->
       </form>
     </div>
   </main>
