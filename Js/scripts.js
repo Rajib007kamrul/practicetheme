@@ -1,3 +1,50 @@
+  var map;
+  function initMap() {
+
+      var latLng = {
+        lat : parseFloat( options.latitude ) ,
+        lng : parseFloat( options.longitude )
+      };
+  map = new google.maps.Map(document.getElementById("map"), {
+  center: latLng,
+  zoom: parseInt( options.zoom),
+  });
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map:map,
+    title: 'La Pizzeria'
+  });
+
+  }
+
+jQuery(document).ready( function($) {
+    // adapt map to height
+   var map = $('#map');
+   let breakpoint = 1000;
+     if(map.length > 0) {
+       if($(document).width() >=  breakpoint) {
+        displayMap(0, $);
+       } else {
+         displayMap(300,$);
+       }
+     }
+
+
+    $(window).resize(function(){
+        if($(document).width() >=  breakpoint) {
+         displayMap(0);
+        } else {
+          displayMap(300);
+        }
+    });
+
+
+});
+
+
+
+
+
 //$ = jQuery.noConflict();
 
 jQuery(document).ready( function($) {
@@ -10,37 +57,25 @@ jQuery(document).ready( function($) {
   var breakpoint = 768;
 
   $(window).resize(function() {
-       boxAdjustment();
-        if($(document).width() >= breakpoint) {
-          $('nav.site-nav').show();
-        }else{
-          $('nav.site-nav').hide();
-        }
+      if($(document).width() >= breakpoint) {
+        $('nav.site-nav').show();
+      }else{
+        $('nav.site-nav').hide();
+      }
   });
 
-  function boxAdjustment() {
-
-  }
-
  // fluidbox plugin
+ $('.gallery a').fluidbox();
 
-$('.gallery a').fluidbox();
-
-/*
- jQuery('.gallery a').each( function() {
-  //  jQuery(this).attr({'date-fluidbox': });
- });
-
- if(jQuery('[date-fluidbox]').length > 0 ) {
-   jQuery('[date-fluidbox]').fluidbox();
- }
-
-*/
-
-/*
-  $('.mobile-menu a').on('click', function(e) {
-    e.preventDefault();
-    alert("You clicked the menu button");
-  })
-*/
 });
+
+
+function displayMap(value,$){
+    if(value == 0){
+      var locationSection = $('.location-reservation');
+      var locationHeight = locationSection.height();
+      $('#map').css({'height': locationHeight});
+    } else {
+      $('#map').css({'height': value});
+    }
+}

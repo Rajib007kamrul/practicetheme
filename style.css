@@ -420,10 +420,13 @@ nav.site-nav ul li.current_page_parent a {
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
+
 }
 
 .content-box p {
   grid-area: top;
+
+
 }
 
 /***** footer  ******/
@@ -803,8 +806,8 @@ li.comment ul.children {
   background-position: top left;
 }
 
-@@media only screen and (min-width:768px) {
-  form.reservation-form {
+@media only screen and (min-width:768px) {
+  .reservation-info{
     margin-left: 50%;
   }
 }
@@ -982,4 +985,58 @@ text-align: center;
 
 section.Ingredients .image img {
   width: 80%;
+}
+
+
+/*** location/ reservation ***/
+section.location-reservation {
+  background-image: url(./files-la-pizzeria/img/bg_ingredients.jpg);
+  background-repeat: no-repeat;
+  background-position:center center;
+  background-size: cover;
+}
+
+.home .reservation-info {
+  margin: 0;
+  color: #fff;
+  padding: 50px;
+}
+.home .reservation-form h2 {
+  text-align: center;
+  font-size: 35px;
+  margin: 0 0 20px 0;
+  font-weight:900;
+  color: #ffffff;
+}
+.home .reservation-form input,
+.home .reservation-form textarea {
+  background-color: transparent;
+  border: 4px solid #ffffff !important;
+  color: #fff !important;
+}
+
+.home .reservation-form input[type="submit"] {
+  background-color: #a61206;
+  border: none!important;
+}
+
+.home form.reservation-form ::-webkit-input-placeholder {
+  color: #ffffff !important;
+}
+
+.home form.reservation-form :moz-placeholder {
+  color: #ffffff !important;
+}
+
+.home form.reservation-form ::moz-placeholder {
+  color: #ffffff!important;
+}
+.home form.reservation-form ::-ms-input-placeholder {
+  color: #ffffff !important;
+}
+
+/*** Map ***/
+
+#map {
+  height: 400px;
 }

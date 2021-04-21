@@ -6,7 +6,7 @@
         <h2><?php echo esc_html( get_option('blogdescription') ); ?></h2>
         <?php the_content(); ?>
         <?php $url = get_page_by_title('About Us'); ?>
-        <a class="button secondary" href="<?php echo get_permalink($url->ID); ?>">more info</a>
+        <a class="button secondary" href="<?php echo get_permalink($url->ID); ?>">More info</a>
       </div>
     </div>
   </div>
@@ -31,7 +31,7 @@
               <?php the_title('<h3>', '</h3>'); ?>
               <?php the_content(); ?>
               <p class="price"><?php the_field('price'); ?></p>
-              <a href="<?php the_permalink(); ?>" class="button primary">read more</a>
+              <a href="<?php the_permalink(); ?>" class="button primary">Read more</a>
             </div>
           </div>
         </div>
@@ -48,7 +48,7 @@
                 <h3><?php the_field('Ingredients'); ?></h3>
                 <?php the_field('ingredients_text'); ?>
                 <?php $url = get_page_by_title('About Us'); ?>
-                <a class="button primary" href="<?php echo get_permalink($url->ID); ?>">read more</a>
+                <a class="button primary" href="<?php echo get_permalink($url->ID); ?>">Read more</a>
             </div>
             <div class="columns2-4">
                 <img src="<?php the_field('image'); ?>" alt="Fresh Ingredients">
@@ -59,4 +59,27 @@
         </div>
       </div>
     </section>
+
+    <section class="container clear">
+      <h2 class="primary-text text-center">Gallery</h2>
+      <?php
+        $url = get_page_by_title('Gallery');
+        echo get_post_gallery( $url->ID,);
+      ?>
+    </section>
+
+    <section class="location-reservation clear container">
+      <div class="container-grid">
+        <div class="columns2-4">
+          <div id="map">
+            map here
+          </div>
+
+        </div>
+        <div class="columns2-4">
+          <?php get_template_part('templates/reservation', 'form'); ?>
+        </div>
+      </div>
+    </section>
+
 <?php get_footer(); ?>

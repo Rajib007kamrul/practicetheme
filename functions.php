@@ -19,9 +19,23 @@ function lapizzeria_setup() {
 
 	update_option( 'thumbnail_size_h', 164);
 
+	add_theme_support('custom-logo');
+
 }
 
 add_action ('after_setup_theme', 'lapizzeria_setup');
+
+function lapizzeria_custom_logo(){
+		$logo = array(
+			'height' => 200,
+			'width' =>  250
+		);
+		add_theme_support('custom-logo', $logo);
+}
+
+add_action ('after_setup_theme', 'lapizzeria_custom_logo');
+
+
 
 function lapizzeria_styles() {
 	//adding stylesheets
@@ -29,22 +43,46 @@ function lapizzeria_styles() {
 	wp_register_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(),'8.0.1');
 	wp_register_style('fluidboxcss', get_template_directory_uri() . '/css/fluidbox.min.css', array(),'8.0.1');
 	// wp_register_style('fontawesome', get_template_directory_uri() . '/css/fontawesome.css', array(),'5.15.3');
+	wp_register_style('datetime-local', get_template_directory_uri() . '/css/datetime-local-polyfill.css', array(),'1.0.0');
 	wp_register_style('style', get_template_directory_uri() . '/style.css', array('normalize'),'1.0');
 
 	//Enqueue the style
 	wp_enqueue_style('normalize');
 	wp_enqueue_style('googlefont');
 	wp_enqueue_style('fluidboxcss');
-
-
 	// wp_enqueue_style('fontawesome');
 	wp_enqueue_style('style');
+
+	//register_script
+	$apikey = esc_html( get_option('lapizzeria_gmaps_apikey') );
 	wp_register_script( 'fluidboxjs', get_template_directory_uri() . '/js/jquery.fluidbox.min.js', array('jquery'), '1.0.0', true );
 	wp_register_script( 'script', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true );
+	wp_register_script( 'datetime-local-polyfill', get_template_directory_uri() . '/js/datetime-local-polyfill.min.js', array('jquery', 'jquery-ui-core', 'jquery-ui-datepicker', 'modernizr' ), '1.0.0', true);
+	wp_register_script(	'modernizr', 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array('jquery','2.8.3', true));
+	wp_register_script(	'googlemap', 'https://maps.googleapis.com/maps/api/js?key=' . $apikey.'&callback=initMap', array(), '', true);
+
 	// java Script file
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('script');
 	wp_enqueue_script('fluidboxjs');
+	wp_enqueue_script('googlemap');
+	wp_enqueue_script('jquery-ui-core');
+	wp_enqueue_script('jquery-ui-datepicker');
+	wp_enqueue_script('datetime-local-polyfill');
+	wp_enqueue_script('modernizr');
+
+
+	wp_localize_script(
+			'script',
+			'options',
+			array(
+					'latitude' =>esc_html( get_option('lapizzeria_gmaps_latitude') ),
+					'longitude' => esc_html( get_option('lapizzeria_gmaps_longitude') ),
+					'zoom' => esc_html( get_option('lapizzeria_gmaps_zoom') ),
+			),
+	);
+
+
 }
 
 add_action('wp_enqueue_scripts', 'lapizzeria_styles');
@@ -125,3 +163,12 @@ function lapizzeria_widgets() {
 
 
 add_action('widgets_init', 'lapizzeria_widgets');
+
+function add_async_defer($tag, $handle) {
+	if('googlemap' !== $handle){
+		 return $tag;
+	}
+		return str_replace(' src', 'async="async" defer="defer" src', $tag);
+}
+
+add_filter('script_loader_tag', 'add_async_defer', 10, 2);
