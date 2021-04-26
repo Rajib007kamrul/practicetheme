@@ -19,7 +19,7 @@ function lapizzeria_setup() {
 
 	update_option( 'thumbnail_size_h', 164);
 
-	add_theme_support('custom-logo');
+	add_theme_support('title-tag');
 
 }
 
@@ -86,6 +86,20 @@ function lapizzeria_styles() {
 }
 
 add_action('wp_enqueue_scripts', 'lapizzeria_styles');
+
+function lapizzeria_admin_scripts() {
+	wp_enqueue_script('adminjs', get_template_directory_uri() . '/js/admin_ajax.js', array('jquery'), 1.0, true);
+
+
+	wp_localize_script(
+			'adminjs',
+			'admin_ajax',
+			array('ajaxurl' => admin_url('admin-ajax.php') )
+	);
+
+}
+
+add_action('admin_enqueue_scripts', 'lapizzeria_admin_scripts');
 
 
 //add menus

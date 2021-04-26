@@ -241,6 +241,27 @@ nav.site-nav ul {
     width: 1%;
   }
 }
+@media only screen and (min-width: 992px) {
+
+      nav.site-nav ul li.menu-item-has-children {
+        position: relative;
+      }
+      nav.site-nav ul li.menu-item-has-children ul.sub-menu {
+        display: none;
+      }
+      nav.site-nav ul li.menu-item-has-children:hover ul.sub-menu {
+        display: block;
+        position: absolute;
+        top:100%;
+        left:0;
+        z-index: 1000;
+        background-color:  white;
+      }
+      nav.site-nav ul li.menu-item-has-children:hover ul.sub-menu li {
+        display: block;
+        padding-left: 30px;
+      }
+}
 
 nav.site-nav ul li a {
   text-align: center;
@@ -253,9 +274,8 @@ nav.site-nav ul li a {
   font-family: 'Raleway', sans-serif;
 }
 
-nav.site-nav ul li.current_page_item a,
 .single-specialties nav.site-nav ul li.men-item-27 a,
-nav.site-nav ul li.current_page_parent a {
+nav.site-nav ul li.current_page_parent > a {
   border-bottom: 8px solid #a61206;
 }
 

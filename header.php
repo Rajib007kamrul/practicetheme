@@ -8,7 +8,6 @@
 
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="La Pizzeria Restaurant">
-  <title>La Pizzeria</title>
   <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri() ?>/apple-touch-icon.jpg"
   <link rel="stylesheet" type="text/css"
     href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,7 +29,6 @@
               if(function_exists('the_custom_logo')) {
                 the_custom_logo();
               }
-
           ?>
           <img src="<?php echo get_template_directory_uri() ?>/files-la-pizzeria/img/logo.Svg" class="logoimage">
         </a>
